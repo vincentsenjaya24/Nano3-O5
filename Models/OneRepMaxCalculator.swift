@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+
+struct OneRepMaxCalculator {
+    static func calculateOneRepMax(weight: Double, reps: Int) -> Double {
+        return weight * (1 + 0.0333 * Double(reps))
+    }
+}
