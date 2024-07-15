@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BA973E72C43F65F008825CE /* OneRepMaxCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA973E62C43F65F008825CE /* OneRepMaxCalculator.swift */; };
 		243BEE122C3D325500C9E287 /* Weightlifting_CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */; };
 		243BEE142C3D325500C9E287 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE132C3D325500C9E287 /* ContentView.swift */; };
 		243BEE162C3D325500C9E287 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE152C3D325500C9E287 /* Item.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BA973E62C43F65F008825CE /* OneRepMaxCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxCalculator.swift; sourceTree = "<group>"; };
 		243BEE0E2C3D325500C9E287 /* Weightlifting-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weightlifting-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weightlifting_CalculatorApp.swift; sourceTree = "<group>"; };
 		243BEE132C3D325500C9E287 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,9 +36,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BA973E12C411E00008825CE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1BA973E22C411E08008825CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1BA973E62C43F65F008825CE /* OneRepMaxCalculator.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1BA973E32C411E1F008825CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		243BEE052C3D325500C9E287 = {
 			isa = PBXGroup;
 			children = (
+				1BA973E32C411E1F008825CE /* View */,
+				1BA973E22C411E08008825CE /* Models */,
+				1BA973E12C411E00008825CE /* Utilities */,
 				243BEE102C3D325500C9E287 /* Weightlifting-Calculator */,
 				243BEE0F2C3D325500C9E287 /* Products */,
 			);
@@ -141,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				243BEE142C3D325500C9E287 /* ContentView.swift in Sources */,
+				1BA973E72C43F65F008825CE /* OneRepMaxCalculator.swift in Sources */,
 				243BEE162C3D325500C9E287 /* Item.swift in Sources */,
 				243BEE122C3D325500C9E287 /* Weightlifting_CalculatorApp.swift in Sources */,
 			);
@@ -276,7 +304,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Weightlifting-Calculator/Preview Content\"";
-				DEVELOPMENT_TEAM = KVM8YR8J8U;
+				DEVELOPMENT_TEAM = T5BWYBLKX8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -284,6 +312,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Weightlifting-Calculator/Preview Content\"";
-				DEVELOPMENT_TEAM = KVM8YR8J8U;
+				DEVELOPMENT_TEAM = T5BWYBLKX8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -313,6 +342,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
