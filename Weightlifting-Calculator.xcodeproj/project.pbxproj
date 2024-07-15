@@ -13,6 +13,8 @@
 		243BEE162C3D325500C9E287 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE152C3D325500C9E287 /* Item.swift */; };
 		243BEE182C3D325600C9E287 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 243BEE172C3D325600C9E287 /* Assets.xcassets */; };
 		243BEE1B2C3D325600C9E287 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 243BEE1A2C3D325600C9E287 /* Preview Assets.xcassets */; };
+		B15C94252C45233600AD31F2 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C94242C45233600AD31F2 /* ContentViewModel.swift */; };
+		B15C94272C452F3400AD31F2 /* Services in Resources */ = {isa = PBXBuildFile; fileRef = B15C941F2C45143900AD31F2 /* Services */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		243BEE152C3D325500C9E287 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		243BEE172C3D325600C9E287 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		243BEE1A2C3D325600C9E287 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B15C941F2C45143900AD31F2 /* Services */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Services; sourceTree = "<group>"; };
+		B15C94242C45233600AD31F2 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +44,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = Utilities;
+			name = Utilities;
+			path = ../Utilities;
 			sourceTree = "<group>";
 		};
 		1BA973E22C411E08008825CE /* Models */ = {
@@ -55,15 +60,13 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = View;
+			name = View;
+			path = ../View;
 			sourceTree = "<group>";
 		};
 		243BEE052C3D325500C9E287 = {
 			isa = PBXGroup;
 			children = (
-				1BA973E32C411E1F008825CE /* View */,
-				1BA973E22C411E08008825CE /* Models */,
-				1BA973E12C411E00008825CE /* Utilities */,
 				243BEE102C3D325500C9E287 /* Weightlifting-Calculator */,
 				243BEE0F2C3D325500C9E287 /* Products */,
 			);
@@ -80,6 +83,11 @@
 		243BEE102C3D325500C9E287 /* Weightlifting-Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				B15C94232C45232500AD31F2 /* ViewModels */,
+				1BA973E32C411E1F008825CE /* View */,
+				1BA973E22C411E08008825CE /* Models */,
+				1BA973E12C411E00008825CE /* Utilities */,
+				B15C941F2C45143900AD31F2 /* Services */,
 				243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */,
 				243BEE132C3D325500C9E287 /* ContentView.swift */,
 				243BEE152C3D325500C9E287 /* Item.swift */,
@@ -95,6 +103,14 @@
 				243BEE1A2C3D325600C9E287 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B15C94232C45232500AD31F2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B15C94242C45233600AD31F2 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B15C94272C452F3400AD31F2 /* Services in Resources */,
 				243BEE1B2C3D325600C9E287 /* Preview Assets.xcassets in Resources */,
 				243BEE182C3D325600C9E287 /* Assets.xcassets in Resources */,
 			);
@@ -171,6 +188,7 @@
 				1BA973E72C43F65F008825CE /* OneRepMaxCalculator.swift in Sources */,
 				243BEE162C3D325500C9E287 /* Item.swift in Sources */,
 				243BEE122C3D325500C9E287 /* Weightlifting_CalculatorApp.swift in Sources */,
+				B15C94252C45233600AD31F2 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Weightlifting-Calculator/Preview Content\"";
-				DEVELOPMENT_TEAM = T5BWYBLKX8;
+				DEVELOPMENT_TEAM = H389J7W85Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -334,7 +352,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Weightlifting-Calculator/Preview Content\"";
-				DEVELOPMENT_TEAM = T5BWYBLKX8;
+				DEVELOPMENT_TEAM = H389J7W85Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
