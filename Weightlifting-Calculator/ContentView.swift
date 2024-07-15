@@ -1,61 +1,88 @@
-//
-//  ContentView.swift
-//  Weightlifting-Calculator
-//
-//  Created by Vincent Senjaya on 09/07/24.
-//
-
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @State private var weight: String = ""
+    @State private var reps: String = ""
+    @State private var oneRepMax: String = ""
+    @State private var selection = 0
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        VStack(spacing: 20){
+            Spacer()
+            HStack{
+                Text("Weightlifting Calculator")
+                    .font(.title)
+                    
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+            .padding(.leading)
+            VStack(spacing: 20) {
+                Picker(selection: $selection, label: Text("Picker")) {
+                    Text("Weight - Rep").tag(0)
+                    Text("1RM").tag(1)
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
+                if selection == 0 {
+                    VStack(spacing: 20) {
+                        HStack{
+                      
+                            TextField("Enter weight (kg)", text: $weight)
+                                .keyboardType(.decimalPad)
+                                .padding()
+                                .background(Color(.systemGray6))
+                                .cornerRadius(8)
+                                .padding(.horizontal)
+                        }
+                        TextField("Enter reps", text: $reps)
+                            .keyboardType(.numberPad)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                            .padding(.horizontal)
+                        
+                        Button(action: calculateOneRepMax) {
+                            Text("Calculate 1RM")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .padding(.horizontal)
+                        
+                        if !oneRepMax.isEmpty {
+                            Text("Estimated 1RM: \(oneRepMax) kg")
+                                .font(.headline)
+                                .padding()
+                        }
+                        
+                        Spacer()
                     }
+                    .padding(.top)
+                } else {
+                    Text("Option 2 Selected")
+                        .font(.headline)
+                        .padding()
                 }
             }
-        } detail: {
-            Text("Select an item")
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+    private func calculateOneRepMax() {
+        guard let weight = Double(weight), let reps = Int(reps) else {
+            oneRepMax = "Invalid input"
+            return
         }
-    }
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
+        let oneRepMaxValue = OneRepMaxCalculator.calculateOneRepMax(weight: weight, reps: reps)
+        oneRepMax = String(format: "%.2f", oneRepMaxValue)
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
+
