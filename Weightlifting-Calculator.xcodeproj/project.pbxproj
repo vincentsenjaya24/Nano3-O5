@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BA973E72C43F65F008825CE /* OneRepMaxCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA973E62C43F65F008825CE /* OneRepMaxCalculator.swift */; };
 		243BEE122C3D325500C9E287 /* Weightlifting_CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */; };
 		243BEE142C3D325500C9E287 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE132C3D325500C9E287 /* ContentView.swift */; };
 		243BEE162C3D325500C9E287 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE152C3D325500C9E287 /* Item.swift */; };
 		243BEE182C3D325600C9E287 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 243BEE172C3D325600C9E287 /* Assets.xcassets */; };
 		243BEE1B2C3D325600C9E287 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 243BEE1A2C3D325600C9E287 /* Preview Assets.xcassets */; };
 		B15C94252C45233600AD31F2 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C94242C45233600AD31F2 /* ContentViewModel.swift */; };
-		B15C942F2C45302400AD31F2 /* CalculatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C942E2C45302400AD31F2 /* CalculatorService.swift */; };
+		B15C942F2C45302400AD31F2 /* CalculatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C942E2C45302400AD31F2 /* CalculatorProtocol.swift */; };
 		B15C94312C45380600AD31F2 /* TrainingDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C94302C45380600AD31F2 /* TrainingDataViewModel.swift */; };
+		B15C94342C465FE300AD31F2 /* WeightliftingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C94332C465FE300AD31F2 /* WeightliftingDataView.swift */; };
+		B15C94362C467E9500AD31F2 /* Weightlift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C94352C467E9500AD31F2 /* Weightlift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1BA973E62C43F65F008825CE /* OneRepMaxCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxCalculator.swift; sourceTree = "<group>"; };
 		243BEE0E2C3D325500C9E287 /* Weightlifting-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weightlifting-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weightlifting_CalculatorApp.swift; sourceTree = "<group>"; };
 		243BEE132C3D325500C9E287 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,8 +27,10 @@
 		243BEE172C3D325600C9E287 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		243BEE1A2C3D325600C9E287 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B15C94242C45233600AD31F2 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
-		B15C942E2C45302400AD31F2 /* CalculatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorService.swift; sourceTree = "<group>"; };
+		B15C942E2C45302400AD31F2 /* CalculatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorProtocol.swift; sourceTree = "<group>"; };
 		B15C94302C45380600AD31F2 /* TrainingDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDataViewModel.swift; sourceTree = "<group>"; };
+		B15C94332C465FE300AD31F2 /* WeightliftingDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightliftingDataView.swift; sourceTree = "<group>"; };
+		B15C94352C467E9500AD31F2 /* Weightlift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weightlift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +55,9 @@
 		1BA973E22C411E08008825CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1BA973E62C43F65F008825CE /* OneRepMaxCalculator.swift */,
+				B15C94352C467E9500AD31F2 /* Weightlift.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		1BA973E32C411E1F008825CE /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			path = ../View;
 			sourceTree = "<group>";
 		};
 		243BEE052C3D325500C9E287 = {
@@ -85,9 +79,9 @@
 		243BEE102C3D325500C9E287 /* Weightlifting-Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				B15C94322C465F1100AD31F2 /* View */,
 				B15C942C2C452FE300AD31F2 /* Services */,
 				B15C94232C45232500AD31F2 /* ViewModels */,
-				1BA973E32C411E1F008825CE /* View */,
 				1BA973E22C411E08008825CE /* Models */,
 				1BA973E12C411E00008825CE /* Utilities */,
 				243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */,
@@ -127,9 +121,17 @@
 		B15C942D2C45301500AD31F2 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				B15C942E2C45302400AD31F2 /* CalculatorService.swift */,
+				B15C942E2C45302400AD31F2 /* CalculatorProtocol.swift */,
 			);
 			path = Calculator;
+			sourceTree = "<group>";
+		};
+		B15C94322C465F1100AD31F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B15C94332C465FE300AD31F2 /* WeightliftingDataView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,11 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B15C94362C467E9500AD31F2 /* Weightlift.swift in Sources */,
+				B15C94342C465FE300AD31F2 /* WeightliftingDataView.swift in Sources */,
 				243BEE142C3D325500C9E287 /* ContentView.swift in Sources */,
-				1BA973E72C43F65F008825CE /* OneRepMaxCalculator.swift in Sources */,
 				243BEE162C3D325500C9E287 /* Item.swift in Sources */,
 				243BEE122C3D325500C9E287 /* Weightlifting_CalculatorApp.swift in Sources */,
-				B15C942F2C45302400AD31F2 /* CalculatorService.swift in Sources */,
+				B15C942F2C45302400AD31F2 /* CalculatorProtocol.swift in Sources */,
 				B15C94252C45233600AD31F2 /* ContentViewModel.swift in Sources */,
 				B15C94312C45380600AD31F2 /* TrainingDataViewModel.swift in Sources */,
 			);
