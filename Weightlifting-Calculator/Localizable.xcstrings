@@ -1,0 +1,149 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%" : {
+
+    },
+    "%.2f" : {
+
+    },
+    "%@" : {
+
+    },
+    "%lld" : {
+
+    },
+    "+ %@" : {
+
+    },
+    "1RM" : {
+
+    },
+    "1RM VALUE" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NILAI 1RM"
+          }
+        }
+      }
+    },
+    "BENCH PRESS" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BENCH PRESS"
+          }
+        }
+      }
+    },
+    "Calculate" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hitung"
+          }
+        }
+      }
+    },
+    "DEADLIFT" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEADLIFT"
+          }
+        }
+      }
+    },
+    "EXERCISE" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LATIHAN"
+          }
+        }
+      }
+    },
+    "kg" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "kg"
+          }
+        }
+      }
+    },
+    "Picker" : {
+
+    },
+    "PROGRESSIVE OVERLOAD" : {
+
+    },
+    "Reps" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repetisi"
+          }
+        }
+      }
+    },
+    "RM" : {
+
+    },
+    "TRAINING WEIGHT" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BEBAN LATIHAN"
+          }
+        }
+      }
+    },
+    "Weight - Rep" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beban - Rep"
+          }
+        }
+      }
+    },
+    "Weight (kg)" : {
+
+    },
+    "Weightlifting Calculator" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalkulator Angkat Beban"
+          }
+        }
+      }
+    },
+    "Weightlifting Data" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Angkat Beban"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

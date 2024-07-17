@@ -6,87 +6,108 @@
 //
 
 import SwiftUI
+import  Foundation
 
 struct WeightliftingDataView: View {
     var rm: Double
-    
+    @Environment(\.colorScheme) var colorScheme
+    @State var currentExercise: ExerciseType
     var body: some View {
-        VStack {
-            Spacer()
-            
-            //RM Value
-            VStack(alignment: .center) {
-                Text("1RM VALUE")
-                    .font(.system(size: 14))
-                    .fontWeight(.semibold)
-                    .foregroundStyle(Color(UIColor.secondaryLabel))
-                    .opacity(0.7)
-                    
-                HStack(alignment: .lastTextBaseline, spacing: 0.3) {
-                    Text("150")
-                        .font(.system(size: 80))
-                    Text("kg")
-                        .font(.system(size: 20))
-                }
-                .fontWeight(.bold)
-                .foregroundStyle(Color.blue)
-                
-                Text("DEADLIFT")
-                    .font(.system(size: 18))
-                    .fontWeight(.semibold)
-                    .foregroundStyle(Color(UIColor.secondaryLabel))
-                
-            }
-            
-            Spacer()
-            
-            //Training Weight Card
-            VStack(alignment: .leading) {
-                Label("TRAINING WEIGHT", systemImage: "scalemass")
-                    .foregroundStyle(Color(UIColor.secondaryLabel))
-                
-                VStack {
-                    TrainingWeightRow()
-                    
-                    Divider()
-                    
-                    TrainingWeightRow()
-
-                    Divider()
-                    
-                    TrainingWeightRow()
-                }
-                .padding(.vertical)
-            }
-            .padding()
-            .background(Color(UIColor.systemFill))
-            .clipShape(RoundedRectangle(cornerRadius: 18))
-            
-            VStack(alignment: .leading) {
-                Label("PROGRESSIVE OVERLOAD", systemImage: "chart.line.uptrend.xyaxis")
-                    .foregroundStyle(Color(UIColor.secondaryLabel))
-                
-                VStack {
-                    ProgressiveOverloadRow()
-                    
-                    Divider()
-                    
-                    ProgressiveOverloadRow()
-
-                    Divider()
-                    
-                    ProgressiveOverloadRow()
-                }
-                .padding(.vertical)
-            }
-            .padding()
-            .background(Color(UIColor.systemFill))
-            .clipShape(RoundedRectangle(cornerRadius: 18))
-            
-            Spacer()
-        }
-        .padding(.horizontal)
         
+        ScrollView{
+            ZStack{
+                Color(.elevated).ignoresSafeArea()
+
+            VStack {
+                Spacer()
+                
+                //RM Value
+                VStack(alignment: .center) {
+                    Text("1RM VALUE")
+                        .font(.system(size: 14))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color(UIColor.secondaryLabel))
+                        .opacity(0.7)
+                    
+                    HStack(alignment: .lastTextBaseline, spacing: 0.3) {
+                        Text("\(rm, specifier: "%.2f")")
+                            .font(.system(size: 80))
+                        Text("kg")
+                            .font(.system(size: 20))
+                    }
+                    .fontWeight(.bold)
+                    .foregroundStyle(Color.blue)
+                    
+                    Text(currentExercise == .benchpress ? "BENCH PRESS" : "DEADLIFT")
+                        .font(.system(size: 18))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color(UIColor.secondaryLabel))
+                    
+                }.padding(.bottom,35)
+                
+                Spacer()
+                
+                //Training Weight Card
+                VStack(alignment: .leading) {
+                    Label("TRAINING WEIGHT", systemImage: "scalemass")
+                        .foregroundStyle(Color(UIColor.secondaryLabel))
+                    
+                    VStack {
+                        TrainingWeightRow(percentage: 70, TWReps: 12, TWrm: rm)
+                        
+                        Divider().overlay(colorScheme == .light ? Color.black : Color.white )
+                        
+                        TrainingWeightRow(percentage: 80, TWReps: 8, TWrm: rm)
+                        
+                        Divider().overlay(colorScheme == .light ? Color.black : Color.white )
+                        
+                        TrainingWeightRow(percentage: 90, TWReps: 4, TWrm: rm)
+                        
+                        Divider().overlay(colorScheme == .light ? Color.black : Color.white )
+                        
+                        TrainingWeightRow(percentage: 95, TWReps: 2, TWrm: rm)
+                        
+                        
+                    }
+                    .padding(.vertical)
+                }
+                .padding()
+                .background(Color(UIColor.systemFill))
+                .clipShape(RoundedRectangle(cornerRadius: 18))
+                
+                VStack(alignment: .leading) {
+                    Label("PROGRESSIVE OVERLOAD", systemImage: "chart.line.uptrend.xyaxis")
+                        .foregroundStyle(Color(UIColor.secondaryLabel))
+                    
+                    VStack {
+                        ProgressiveOverloadRow(percentage: 2.5, POrm: rm)
+                        
+                        Divider().overlay(colorScheme == .light ? Color.black : Color.white )
+                        
+                        
+                        ProgressiveOverloadRow(percentage: 5, POrm: rm)
+                        
+                        Divider().overlay(colorScheme == .light ? Color.black : Color.white )
+                        
+                        ProgressiveOverloadRow(percentage: 7.5, POrm: rm)
+                        
+                        Divider().overlay(colorScheme == .light ? Color.black : Color.white )
+                        
+                        ProgressiveOverloadRow(percentage: 10, POrm: rm)
+                    }
+                    .padding(.vertical)
+                }
+                .padding()
+                .background(Color(UIColor.systemFill))
+                .clipShape(RoundedRectangle(cornerRadius: 18))
+                
+                Spacer()
+            }
+            .padding(.horizontal)
+            .navigationTitle("Weightlifting Data")
+        }
+            
+        }
     }
 }
 
@@ -114,13 +135,13 @@ struct ProgressiveOverloadData: View {
 
 struct ProgressiveOverloadRow: View {
     
-    var percentage: Double?
-    var weight: Double?
-    
+    var percentage: Double
+    @StateObject private var TrainingViewModel : TrainingDataViewModel = TrainingDataViewModel()
+    var POrm : Double
     var body: some View {
         HStack {
             HStack {
-                Text("+ \(2.5, format: .number)")
+                Text("+ \((percentage), format: .number)")
                     .font(.system(size: 30))
                     .fontWeight(.medium)
                 
@@ -132,11 +153,11 @@ struct ProgressiveOverloadRow: View {
             Spacer()
             
             HStack {
-                Text("\(153.75, format: .number)")
+                Text("\((TrainingViewModel.getOverloadWeight(percentage: percentage, rm: POrm)), format: .number)")
                     .font(.system(size: 30))
                     .fontWeight(.medium)
                 
-                Text("Kg")
+                Text("kg")
                     .font(.system(size: 15))
                     .fontWeight(.medium)
             }
@@ -162,13 +183,17 @@ struct TrainingWeightData: View {
 }
 
 struct TrainingWeightRow: View {
+    var percentage : Int
+    var TWReps : Int
+    @StateObject private var TrainingViewModel : TrainingDataViewModel = TrainingDataViewModel()
+    var TWrm : Double
     var body: some View {
         HStack {
-            TrainingWeightData(unitValue: 70, unitName: "%")
+            TrainingWeightData(unitValue: percentage, unitName: "%")
             Spacer()
-            TrainingWeightData(unitValue: 12, unitName: "reps")
+            TrainingWeightData(unitValue: TWReps, unitName: "reps")
             Spacer()
-            TrainingWeightData(unitValue: 33, unitName: "Kg")
+            TrainingWeightData(unitValue: Int(TrainingViewModel.getWeight(percentage: percentage, rm: TWrm)), unitName: "Kg")
         }
         .padding(.horizontal, 30)
     }

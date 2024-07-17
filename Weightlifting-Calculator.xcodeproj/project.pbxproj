@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B800A1F2C47ABF700856741 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B800A1E2C47ABF700856741 /* CalculatorView.swift */; };
+		1B800A252C47CAE400856741 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1B800A242C47CAE400856741 /* Localizable.xcstrings */; };
 		243BEE122C3D325500C9E287 /* Weightlifting_CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */; };
 		243BEE142C3D325500C9E287 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE132C3D325500C9E287 /* ContentView.swift */; };
 		243BEE162C3D325500C9E287 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE152C3D325500C9E287 /* Item.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1B800A1E2C47ABF700856741 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		1B800A242C47CAE400856741 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		243BEE0E2C3D325500C9E287 /* Weightlifting-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weightlifting-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weightlifting_CalculatorApp.swift; sourceTree = "<group>"; };
 		243BEE132C3D325500C9E287 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,14 +48,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1BA973E12C411E00008825CE /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Utilities;
-			path = ../Utilities;
-			sourceTree = "<group>";
-		};
 		1BA973E22C411E08008825CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,11 +79,11 @@
 				B15C942C2C452FE300AD31F2 /* Services */,
 				B15C94232C45232500AD31F2 /* ViewModels */,
 				1BA973E22C411E08008825CE /* Models */,
-				1BA973E12C411E00008825CE /* Utilities */,
 				243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */,
 				243BEE132C3D325500C9E287 /* ContentView.swift */,
 				243BEE152C3D325500C9E287 /* Item.swift */,
 				243BEE172C3D325600C9E287 /* Assets.xcassets */,
+				1B800A242C47CAE400856741 /* Localizable.xcstrings */,
 				243BEE192C3D325600C9E287 /* Preview Content */,
 			);
 			path = "Weightlifting-Calculator";
@@ -179,6 +173,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 243BEE052C3D325500C9E287;
 			productRefGroup = 243BEE0F2C3D325500C9E287 /* Products */;
@@ -197,6 +192,7 @@
 			files = (
 				243BEE1B2C3D325600C9E287 /* Preview Assets.xcassets in Resources */,
 				243BEE182C3D325600C9E287 /* Assets.xcassets in Resources */,
+				1B800A252C47CAE400856741 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Weightlifting-Calculator/Preview Content\"";
-				DEVELOPMENT_TEAM = H389J7W85Q;
+				DEVELOPMENT_TEAM = T5BWYBLKX8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -379,7 +375,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Weightlifting-Calculator/Preview Content\"";
-				DEVELOPMENT_TEAM = H389J7W85Q;
+				DEVELOPMENT_TEAM = T5BWYBLKX8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
