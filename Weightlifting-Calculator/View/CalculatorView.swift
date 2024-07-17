@@ -6,19 +6,30 @@
 //
 import SwiftUI
 
+enum ExerciseType: Codable, Hashable {
+    case benchpress
+    case deadlift
+}
+
 struct CalculatorView: View {
-    @StateObject private var contentViewModel = ContentViewModel()
+    @StateObject private var contentViewModel: ContentViewModel = ContentViewModel()
     @State private var selection = 0
     @State private var showResultView = false
-    @State private var rm : Double?
-    @State var currentRM = ""
-    @State var currentWeight = ""
-    @State var currentReps = ""
-    @State var currentExercise = ""
-    @State private var selectedExercise: String?
+
+    @State var currentRM: Double = 0.0
+    @State var currentWeight: Double = 0.0
+    @State var currentReps: Int = 0
+    @State var currentExercise: ExerciseType = .benchpress
+    
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .none
+        formatter.zeroSymbol  = ""
+        return formatter
+    }()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 20) {
                 Spacer()
                 HStack {
@@ -38,7 +49,7 @@ struct CalculatorView: View {
                     if selection == 0 {
                         VStack(spacing: 20) {
                             VStack(alignment: .leading, spacing: 5) {
-                                TextField("Weight (Kg)", value: $contentViewModel, format: .number)
+                                TextField("Weight (Kg)", value: $currentWeight, formatter: numberFormatter)
                                     .keyboardType(.decimalPad)
                                     .padding()
                                     .background(Color(.systemGray6))
@@ -47,7 +58,7 @@ struct CalculatorView: View {
                             }
 
                             VStack(alignment: .leading, spacing: 5) {
-                                TextField("Reps", value: $contentViewModel.reps, format: .number)
+                                TextField("Reps", value: $currentReps, formatter: numberFormatter)
                                     .keyboardType(.numberPad)
                                     .padding()
                                     .background(Color(.systemGray6))
@@ -62,44 +73,34 @@ struct CalculatorView: View {
                                 Spacer()
                             }
                             HStack(spacing: 10) {
-                                ExerciseButton(label: "Bench Press", isSelected: selectedExercise == "Bench Press") {
-                                    selectedExercise = "Bench Press"
-                                    currentExercise = "Bench Press"
+                                ExerciseButton(label: "Bench Press", isSelected: currentExercise == .benchpress) {
+                                    currentExercise = .benchpress
                                 }
-                                ExerciseButton(label: "Deadlift", isSelected: selectedExercise == "Deadlift") {
-                                    selectedExercise = "Deadlift"
-                                    currentExercise = "Deadlift"
+                                ExerciseButton(label: "Deadlift", isSelected: currentExercise == .deadlift) {
+                                    currentExercise = .deadlift
                                 }
                                 Spacer()
                             }
                             .padding(.leading)
 
                             Spacer()
-
-                            Button(action: {
-                                contentViewModel.getRM()
-                                showResultView = true
-                            }) {
+                            
+                            NavigationLink(destination: WeightliftingDataView(rm: contentViewModel.getRM(weight: currentWeight, reps: currentReps)), label: {
                                 Text("Calculate")
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                                    .background(Color.gray)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                            }
+                            })
+                            .disabled(currentWeight == 0.0 || currentReps == 0)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .foregroundStyle(currentWeight == 0.0 || currentReps == 0 ?  Color(UIColor.tertiaryLabel) : Color.white)
+                            .background(currentWeight == 0.0 || currentReps == 0 ?  Color(UIColor.tertiarySystemFill) : Color.blue)
+                            .cornerRadius(10)
                             .padding(.horizontal)
-                            .background(
-                                NavigationLink(destination: WeightliftingDataView().environmentObject(contentViewModel), isActive: $showResultView) {
-                                    EmptyView()
-                                }
-                            )
-
                         }
                         .padding(.top)
                     } else {
                         VStack(spacing: 20) {
                             VStack(alignment: .leading, spacing: 5) {
-                                TextField("RM", value: $contentViewModel.currentRM, format: .number)
+                                TextField("RM", value: $currentRM, format: .number)
                                     .keyboardType(.numberPad)
                                     .padding()
                                     .background(Color(.systemGray6))
@@ -113,13 +114,11 @@ struct CalculatorView: View {
                                 Spacer()
                             }
                             HStack(spacing: 10) {
-                                ExerciseButton(label: "Bench Press", isSelected: selectedExercise == "Bench Press") {
-                                    selectedExercise = "Bench Press"
-                                    currentExercise = "Bench Press"
+                                ExerciseButton(label: "Bench Press", isSelected: currentExercise == .benchpress) {
+                                    currentExercise = .benchpress
                                 }
-                                ExerciseButton(label: "Deadlift", isSelected: selectedExercise == "Deadlift") {
-                                    selectedExercise = "Deadlift"
-                                    currentExercise = "Deadlift"
+                                ExerciseButton(label: "Deadlift", isSelected: currentExercise == .deadlift) {
+                                    currentExercise = .deadlift
                                 }
                                 Spacer()
                             }
@@ -127,22 +126,20 @@ struct CalculatorView: View {
 
                             Spacer()
 
-                            Button(action: {
-                                showResultView = true
-                            }) {
-                                Text("Set 1RM")
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                            }
-                            .padding(.horizontal)
-                            .background(
-                                NavigationLink(destination: WeightliftingDataView().environmentObject(contentViewModel), isActive: $showResultView) {
-                                    EmptyView()
+                            NavigationLink(destination: WeightliftingDataView(rm: currentRM ?? 0.0), label: {
+                                
+                                Button(action: {
+                                    currentRM = contentViewModel.getRM(weight: currentWeight ?? 0.0, reps: currentReps ?? 0)
+                                }) {
+                                    Text("Calculate")
+                                        .frame(maxWidth: .infinity)
+                                        .padding()
+                                        .background(Color.gray)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(10)
                                 }
-                            )
+                                .padding(.horizontal)
+                            })
                         }
                     }
                 }
