@@ -7,20 +7,13 @@
 
 import Foundation
 
-class TrainingDataViewModel: ObservableObject {
-    var rm: Double
-    var calculatorService: CalculatorProtocol
+class TrainingDataViewModel: ObservableObject, WeightCalculator {
     
-    init(rm: Double, calculator: CalculatorProtocol = CalculatorService()) {
-        self.rm = rm
-        self.calculatorService = calculator
+    func getWeight(percentage: Int, rm: Double) -> Double {
+        return rm * (Double(percentage) / 100.0)
     }
     
-    func getWeightFromPercentage(percentage: Int) -> Double {
-        return calculatorService.getWeight(percentage: percentage, rm: rm)
-    }
-    
-    func getOverloadWeight(percentage: Double) -> Double {
+    func getOverloadWeight(percentage: Double, rm: Double) -> Double {
         return rm + rm * (percentage / 100)
     }
     
