@@ -62,7 +62,7 @@ struct ExFormView: View {
                                 rm = contentViewModel.getRM(weight: weight!, reps: reps!)
                                 print(rm ?? 0.0)
                             }, label: {
-                                Text("Calculate 1RM")
+                                Text("Calculate")
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Color.blue)
@@ -76,9 +76,33 @@ struct ExFormView: View {
                         }
                         .padding(.top)
                     } else {
-                        Text("Option 2 Selected")
-                            .font(.headline)
-                            .padding()
+                        VStack(spacing: 20) {
+                            HStack{
+                          
+                                TextField("Enter RM", value: $weight, format: .number)
+                                    .keyboardType(.decimalPad)
+                                    .padding()
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                    .padding(.horizontal)
+                            }
+                            
+                            Button(action: {
+                                print(rm ?? 0.0)
+                            }, label: {
+                                Text("Calculate")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                            })
+                            .padding(.horizontal)
+                            
+                            Spacer()
+                            
+                        }
+                        .padding(.top)
                     }
                 }
             }
