@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B800A1F2C47ABF700856741 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B800A1E2C47ABF700856741 /* CalculatorView.swift */; };
 		243BEE122C3D325500C9E287 /* Weightlifting_CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */; };
 		243BEE142C3D325500C9E287 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE132C3D325500C9E287 /* ContentView.swift */; };
 		243BEE162C3D325500C9E287 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BEE152C3D325500C9E287 /* Item.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B800A1E2C47ABF700856741 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		243BEE0E2C3D325500C9E287 /* Weightlifting-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weightlifting-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		243BEE112C3D325500C9E287 /* Weightlifting_CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weightlifting_CalculatorApp.swift; sourceTree = "<group>"; };
 		243BEE132C3D325500C9E287 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				B15C94332C465FE300AD31F2 /* WeightliftingDataView.swift */,
+				1B800A1E2C47ABF700856741 /* CalculatorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				243BEE122C3D325500C9E287 /* Weightlifting_CalculatorApp.swift in Sources */,
 				B15C942F2C45302400AD31F2 /* CalculatorProtocol.swift in Sources */,
 				B15C94252C45233600AD31F2 /* ContentViewModel.swift in Sources */,
+				1B800A1F2C47ABF700856741 /* CalculatorView.swift in Sources */,
 				B15C94312C45380600AD31F2 /* TrainingDataViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
