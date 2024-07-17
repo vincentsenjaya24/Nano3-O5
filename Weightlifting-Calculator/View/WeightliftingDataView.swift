@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WeightliftingDataView: View {
+    var rm: Double
+    
     var body: some View {
         VStack {
             Spacer()
@@ -88,9 +90,9 @@ struct WeightliftingDataView: View {
     }
 }
 
-#Preview {
-    WeightliftingDataView()
-}
+//#Preview {
+//    WeightliftingDataView()
+//}
 
 struct ProgressiveOverloadData: View {
     var quantity: Double
