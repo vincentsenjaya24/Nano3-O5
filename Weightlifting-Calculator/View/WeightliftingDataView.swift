@@ -30,7 +30,7 @@ struct WeightliftingDataView: View {
                         .opacity(0.7)
                     
                     HStack(alignment: .lastTextBaseline, spacing: 0.3) {
-                        Text("\(rm, specifier: "%.2f")")
+                        Text("\(rm, specifier: "%.0f")")
                             .font(.system(size: 80))
                         Text("kg")
                             .font(.system(size: 20))
@@ -44,7 +44,7 @@ struct WeightliftingDataView: View {
                         .foregroundStyle(Color(UIColor.secondaryLabel))
                     
                 }.padding(.bottom,35)
-                
+                    .padding(.top, 35)
                 Spacer()
                 
                 //Training Weight Card
@@ -72,7 +72,7 @@ struct WeightliftingDataView: View {
                     .padding(.vertical)
                 }
                 .padding()
-                .background(Color(UIColor.systemFill))
+                .background(Color(.tertiary))
                 .clipShape(RoundedRectangle(cornerRadius: 18))
                 
                 VStack(alignment: .leading) {
@@ -98,13 +98,15 @@ struct WeightliftingDataView: View {
                     .padding(.vertical)
                 }
                 .padding()
-                .background(Color(UIColor.systemFill))
+                .background(Color(.tertiary))
                 .clipShape(RoundedRectangle(cornerRadius: 18))
                 
                 Spacer()
             }
             .padding(.horizontal)
             .navigationTitle("Weightlifting Data")
+            .toolbarBackground(Color(.elevated), for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
             
         }
