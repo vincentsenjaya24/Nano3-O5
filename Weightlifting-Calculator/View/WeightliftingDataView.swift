@@ -72,7 +72,7 @@ struct WeightliftingDataView: View {
                     .padding(.vertical)
                 }
                 .padding()
-                .background(Color(.tertiary))
+                .background(Color(UIColor.tertiarySystemFill))
                 .clipShape(RoundedRectangle(cornerRadius: 18))
                 
                 VStack(alignment: .leading) {
@@ -98,7 +98,7 @@ struct WeightliftingDataView: View {
                     .padding(.vertical)
                 }
                 .padding()
-                .background(Color(.tertiary))
+                .background(Color(UIColor.tertiarySystemFill))
                 .clipShape(RoundedRectangle(cornerRadius: 18))
                 
                 Spacer()
@@ -155,7 +155,7 @@ struct ProgressiveOverloadRow: View {
             Spacer()
             
             HStack {
-                Text("\((TrainingViewModel.getOverloadWeight(percentage: percentage, rm: POrm)), format: .number)")
+                Text("\((TrainingViewModel.getOverloadWeight(percentage: percentage, rm: POrm)), format: .number.rounded(rule: .up,increment: 1.0))")
                     .font(.system(size: 30))
                     .fontWeight(.medium)
                 
@@ -195,7 +195,7 @@ struct TrainingWeightRow: View {
             Spacer()
             TrainingWeightData(unitValue: TWReps, unitName: "reps")
             Spacer()
-            TrainingWeightData(unitValue: Int(TrainingViewModel.getWeight(percentage: percentage, rm: TWrm)), unitName: "Kg")
+            TrainingWeightData(unitValue: Int(TrainingViewModel.getWeight(percentage: percentage, rm: TWrm)), unitName: "kg")
         }
         .padding(.horizontal, 30)
     }
