@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct WeightliftingDataView: View {
-    var rm: Double
+struct WeightliftingDataView: View {    
+    @StateObject var dataViewModel: TrainingDataViewModel
     
     var body: some View {
         VStack {
@@ -21,9 +21,10 @@ struct WeightliftingDataView: View {
                     .fontWeight(.semibold)
                     .foregroundStyle(Color(UIColor.secondaryLabel))
                     .opacity(0.7)
+                    .background(Color(UIColor.tertiarySystemFill))
                     
                 HStack(alignment: .lastTextBaseline, spacing: 0.3) {
-                    Text("150")
+                    Text("\(dataViewModel.trainingData?.rm ?? 0.0, format: .number)")
                         .font(.system(size: 80))
                     Text("kg")
                         .font(.system(size: 20))
@@ -31,7 +32,7 @@ struct WeightliftingDataView: View {
                 .fontWeight(.bold)
                 .foregroundStyle(Color.blue)
                 
-                Text("DEADLIFT")
+                Text("\(dataViewModel.trainingData?.exercise ?? .benchpress)")
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
                     .foregroundStyle(Color(UIColor.secondaryLabel))
@@ -46,15 +47,20 @@ struct WeightliftingDataView: View {
                     .foregroundStyle(Color(UIColor.secondaryLabel))
                 
                 VStack {
-                    TrainingWeightRow()
-                    
-                    Divider()
-                    
-                    TrainingWeightRow()
-
-                    Divider()
-                    
-                    TrainingWeightRow()
+                    ForEach(dataViewModel.trainingData!.TrainingPlan) { data in
+                        TrainingWeightRow(data: data)
+                        
+                        Divider()
+                    }
+//                    TrainingWeightRow()
+//
+//                    Divider()
+//                    
+//                    TrainingWeightRow()
+//
+//                    Divider()
+//                    
+//                    TrainingWeightRow()
                 }
                 .padding(.vertical)
             }
@@ -85,6 +91,7 @@ struct WeightliftingDataView: View {
             
             Spacer()
         }
+        .navigationTitle("Weightlifting Data")
         .padding(.horizontal)
         
     }
@@ -162,13 +169,15 @@ struct TrainingWeightData: View {
 }
 
 struct TrainingWeightRow: View {
+    var data: TrainingData
+    
     var body: some View {
         HStack {
-            TrainingWeightData(unitValue: 70, unitName: "%")
+            TrainingWeightData(unitValue: data.percentage, unitName: "%")
             Spacer()
-            TrainingWeightData(unitValue: 12, unitName: "reps")
+            TrainingWeightData(unitValue: data.reps, unitName: "reps")
             Spacer()
-            TrainingWeightData(unitValue: 33, unitName: "Kg")
+            TrainingWeightData(unitValue: Int(data.weight), unitName: "Kg")
         }
         .padding(.horizontal, 30)
     }

@@ -18,6 +18,7 @@
 		B15C94312C45380600AD31F2 /* TrainingDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C94302C45380600AD31F2 /* TrainingDataViewModel.swift */; };
 		B15C94342C465FE300AD31F2 /* WeightliftingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C94332C465FE300AD31F2 /* WeightliftingDataView.swift */; };
 		B15C94362C467E9500AD31F2 /* Weightlift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C94352C467E9500AD31F2 /* Weightlift.swift */; };
+		B15C943A2C48FC8600AD31F2 /* testview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C94392C48FC8600AD31F2 /* testview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		B15C94302C45380600AD31F2 /* TrainingDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDataViewModel.swift; sourceTree = "<group>"; };
 		B15C94332C465FE300AD31F2 /* WeightliftingDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightliftingDataView.swift; sourceTree = "<group>"; };
 		B15C94352C467E9500AD31F2 /* Weightlift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weightlift.swift; sourceTree = "<group>"; };
+		B15C94392C48FC8600AD31F2 /* testview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				B15C94332C465FE300AD31F2 /* WeightliftingDataView.swift */,
 				1B800A1E2C47ABF700856741 /* CalculatorView.swift */,
+				B15C94392C48FC8600AD31F2 /* testview.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				B15C94342C465FE300AD31F2 /* WeightliftingDataView.swift in Sources */,
 				243BEE142C3D325500C9E287 /* ContentView.swift in Sources */,
 				243BEE162C3D325500C9E287 /* Item.swift in Sources */,
+				B15C943A2C48FC8600AD31F2 /* testview.swift in Sources */,
 				243BEE122C3D325500C9E287 /* Weightlifting_CalculatorApp.swift in Sources */,
 				B15C942F2C45302400AD31F2 /* CalculatorProtocol.swift in Sources */,
 				B15C94252C45233600AD31F2 /* ContentViewModel.swift in Sources */,

@@ -85,7 +85,7 @@ struct CalculatorView: View {
 
                             Spacer()
                             
-                            NavigationLink(destination: WeightliftingDataView(rm: contentViewModel.getRM(weight: currentWeight, reps: currentReps)), label: {
+                            NavigationLink(destination: WeightliftingDataView(dataViewModel: TrainingDataViewModel(rm: contentViewModel.getRM(weight: currentWeight, reps: currentReps), exercise: currentExercise)), label: {
                                 Text("Calculate")
                             })
                             .disabled(currentWeight == 0.0 || currentReps == 0)
@@ -126,26 +126,23 @@ struct CalculatorView: View {
 
                             Spacer()
 
-                            NavigationLink(destination: WeightliftingDataView(rm: currentRM ?? 0.0), label: {
-                                
-                                Button(action: {
-                                    currentRM = contentViewModel.getRM(weight: currentWeight ?? 0.0, reps: currentReps ?? 0)
-                                }) {
-                                    Text("Calculate")
-                                        .frame(maxWidth: .infinity)
-                                        .padding()
-                                        .background(Color.gray)
-                                        .foregroundColor(.white)
-                                        .cornerRadius(10)
-                                }
-                                .padding(.horizontal)
+                            NavigationLink(destination: WeightliftingDataView(dataViewModel: TrainingDataViewModel(rm: currentRM, exercise: currentExercise)), label: {
+                                Text("Calculate")
                             })
+                            .disabled(currentWeight == 0.0 || currentReps == 0)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .foregroundStyle(currentWeight == 0.0 || currentReps == 0 ?  Color(UIColor.tertiaryLabel) : Color.white)
+                            .background(currentWeight == 0.0 || currentReps == 0 ?  Color(UIColor.tertiarySystemFill) : Color.blue)
+                            .cornerRadius(10)
+                            .padding(.horizontal)
                         }
                     }
                 }
                 .padding(.top)
             }
             .navigationBarHidden(true)
+            .navigationTitle("")
         }
     }
 }

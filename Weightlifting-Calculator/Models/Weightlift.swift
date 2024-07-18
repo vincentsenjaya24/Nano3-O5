@@ -7,25 +7,24 @@
 
 import Foundation
 
-enum Exercise: Codable {
-    case BenchPress
-    case Deadlift
-}
-
-struct TrainingData {
+struct TrainingData: Identifiable {
+    var id: UUID = UUID()
+    
     var percentage: Int
     var reps: Int
     var weight: Double
 }
 
-struct ProgressOverload {
+struct ProgressOverload: Identifiable {
+    var id: UUID = UUID()
+    
     var percentage: Double
     var weight: Double
 }
 
 struct Weightlift {
     var rm: Double
-    var exercise: Exercise
+    var exercise: ExerciseType
     var TrainingPlan: [TrainingData]
     var ProgressOverloadPlan: [ProgressOverload]
 }
