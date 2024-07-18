@@ -15,7 +15,7 @@ struct CalculatorView: View {
     @StateObject private var contentViewModel: ContentViewModel = ContentViewModel()
     @State private var selection = 0
     @State private var showResultView = false
-    
+    @Environment(\.colorScheme) var colorScheme
     @State var currentRM: Double = 0.0
     @State var currentWeight: Double = 0.0
     @State var currentReps: Int = 0
@@ -57,16 +57,16 @@ struct CalculatorView: View {
                                 TextField("Weight (kg)", value: $currentWeight, formatter: numberFormatter)
                                     .keyboardType(.decimalPad)
                                     .padding()
-                                    .background(Color(.white))
+                                    .background(Color.textfield)
                                     .clipShape(RoundedCorner(radius: 10, corners:[.topLeft, .topRight]))
                                     .padding(.horizontal)
                             }
-                            Divider().frame(width: 330)
+                            Divider().frame(width: 330).foregroundStyle(Color(UIColor.separator))
                             VStack(alignment: .leading, spacing: 5) {
                                 TextField("Reps", value: $currentReps, formatter: numberFormatter)
                                     .keyboardType(.numberPad)
                                     .padding()
-                                    .background(Color(.white))
+                                    .background(Color.textfield)
                                     .clipShape(RoundedCorner(radius: 10, corners:[.bottomLeft, .bottomRight]))
                                     .padding(.horizontal)
                             }
@@ -112,7 +112,7 @@ struct CalculatorView: View {
                                 TextField("RM", value: $currentRM, formatter: numberFormatter)
                                     .keyboardType(.numberPad)
                                     .padding()
-                                    .background(Color(.white))
+                                    .background(Color.textfield)
                                     .cornerRadius(8)
                                     .padding(.horizontal)
                             }
@@ -162,10 +162,13 @@ struct CalculatorView: View {
             Button(action: action) {
                 Text(label)
                     .padding(10).padding(.horizontal,5)
-                    .background(isSelected ? Color(.systemBlue) : Color(.tertiary))
-                    .foregroundColor(isSelected ? .white : .black)
+                    .foregroundColor(isSelected ? Color(.white) : Color(UIColor.label))
+                    .background(isSelected ? Color(.systemBlue) : Color(UIColor.tertiarySystemFill))
                     .cornerRadius(40)
+                
             }
+            
+
         }
     }
     
